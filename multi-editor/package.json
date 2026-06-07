@@ -1,0 +1,76 @@
+{
+  "name": "multi-format-editor",
+  "version": "2.0.0",
+  "description": "Windows 11 Desktop Multi-Format Editor (MD, PPT, PDF, Images, Word, Excel) with PDF Editing & Format Conversion",
+  "main": "dist/main.js",
+  "homepage": "./",
+  "author": "sxcm13268840417",
+  "license": "MIT",
+  "scripts": {
+    "react-start": "react-scripts start",
+    "react-build": "react-scripts build",
+    "react-test": "react-scripts test",
+    "react-eject": "react-scripts eject",
+    "electron-start": "wait-on http://localhost:3000 && electron .",
+    "electron-dev": "concurrently \"npm run react-start\" \"wait-on http://localhost:3000 && electron .\"",
+    "electron-build": "npm run react-build && electron-builder",
+    "build": "npm run react-build && npm run electron-build",
+    "start": "npm run electron-dev"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "axios": "^1.6.0",
+    "markdown-it": "^13.0.1",
+    "highlight.js": "^11.8.0",
+    "pdfjs-dist": "^3.11.174",
+    "pdf-lib": "^1.17.1",
+    "pdfkit": "^0.13.0",
+    "docx": "^8.5.0",
+    "xlsx": "^0.18.5",
+    "mammoth": "^1.6.0",
+    "pptxjs": "^0.5.0",
+    "fabric": "^5.3.0",
+    "react-icons": "^4.11.0",
+    "zustand": "^4.4.0",
+    "node-fetch": "^3.3.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.1.6",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "@types/node": "^20.3.1",
+    "@types/pdfkit": "^0.12.8",
+    "electron": "^25.1.0",
+    "electron-builder": "^24.4.0",
+    "concurrently": "^8.2.0",
+    "wait-on": "^7.0.1",
+    "react-scripts": "5.0.1",
+    "sass": "^1.65.1"
+  },
+  "build": {
+    "appId": "com.multiformat.editor",
+    "productName": "Multi Format Editor Pro",
+    "files": [
+      "dist/",
+      "public/",
+      "node_modules/",
+      "package.json"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    },
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
+  }
+}
